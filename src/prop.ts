@@ -57,10 +57,7 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
   }
 
   if (rawOptions.type) {
-    schema[name][key] = {
-      ...schema[name][key],
-      ...rawOptions,
-    };
+    schema[name][key] = rawOptions;
     return;
   }
 
