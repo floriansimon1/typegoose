@@ -131,11 +131,7 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
   if (!enumOption) {
     const instance = new Type();
 
-    subSchema = schema[instance.constructor.name];
-
-    if (!subSchema && !isPrimitive(Type)) {
-      throw new InvalidPropError(Type.name, key);
-    }
+    subSchema = schema[instance.constructor.name] || {};
   }
 
   const options: any = _.omit(rawOptions, ['ref', 'items']);
