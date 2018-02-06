@@ -18,6 +18,7 @@ export interface BasePropOptions {
   index?: boolean;
   sparse?: boolean;
   mixed?: boolean;
+  type?: any;
   expires?: string | number;
 }
 
@@ -52,6 +53,14 @@ const baseProp = (rawOptions, Type, target, key, isArray = false) => {
 
   if (rawOptions.mixed) {
     schema[name][key] = Mixed;
+    return;
+  }
+
+  if (rawOptions.type) {
+    schema[name][key] = {
+      ...schema[name][key],
+      ...rawOptions,
+    };
     return;
   }
 
