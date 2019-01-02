@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 export declare type Func = (...args: any[]) => any;
 export declare type RequiredType = boolean | [boolean, string] | string | Func | [Func, string];
 export interface BasePropOptions {
